@@ -52,9 +52,7 @@ console.log('random numbers 0 to 100 array only even numbers:', onlyEvenNumbers)
 
 const arraySum = function (array) {
   let totale = 0
-  array.forEach((number) => {
-    return (totale += number)
-  })
+  array.forEach((number) => (totale += number))
   return totale
 }
 console.log('array sum:', arraySum(arrayOfRandomNumbers))
@@ -252,7 +250,7 @@ console.log('oldest film is', oldestFilm(movies))
 
 const howManyFilms = function (array) {
   let counter = 0
-  array.forEach((movie) => counter++)
+  array.forEach(() => counter++)
   return counter
 }
 
@@ -285,10 +283,8 @@ console.log('array of movies released in current millennium', after1999(movies))
 */
 
 const sumOfMovies = function (array) {
-  const years = array.map((movie) => movie.Year)
-  const yearsNumber = []
-  for (let i = 0; i < years.length; i++) yearsNumber.push(parseInt(years[i]))
-  const sum = yearsNumber.reduce((acc, number) => {
+  const years = array.map((movie) => Number(movie.Year))
+  const sum = years.reduce((acc, number) => {
     return acc + number
   }, 0)
   return sum
